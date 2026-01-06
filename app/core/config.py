@@ -27,7 +27,7 @@ class Settings(BaseSettings):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.secrets_maanger_client = None
+        # self.secrets_manager_client = None
         self._load_config()
     
     def _load_config(self):
@@ -64,7 +64,7 @@ class Settings(BaseSettings):
         
 
         if not self.POSTGRES_DB_URL and all([self.POSTGRES_USER, self.POSTGRES_PASSWORD, self.POSTGRES_HOST, self.POSTGRES_PORT, self.POSTGRES_DB]):
-            self.POSTGRES_DB_URL = f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+            self.POSTGRES_DB_URL = f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
     
     def _validate_prod_env(self):
         pass
