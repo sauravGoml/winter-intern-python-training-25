@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     AWS_SECRET_ACCESS_KEY: str = ""
     AWS_REGION: str = ""
 
+    ## model_ids
+    BEDROCK_MODEL_ID: str = ""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # self.secrets_manager_client = None
@@ -56,6 +59,8 @@ class Settings(BaseSettings):
         self.AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
         self.AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
         self.AWS_REGION = os.getenv("AWS_REGION")
+
+        self.BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL")
 
     def _post_load_validation(self):
 

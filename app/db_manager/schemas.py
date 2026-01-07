@@ -11,3 +11,6 @@ class UserInfo(BaseModel):
     name: str
     email: str
     password: str
+
+class Question(BaseModel):
+    question: str
