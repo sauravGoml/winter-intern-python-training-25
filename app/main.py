@@ -7,6 +7,7 @@ import logging
 
 from contextlib import asynccontextmanager
 from db_manager.session import Base, engine
+from db_manager.models.user import Users
 
 
 settings = get_settings()
